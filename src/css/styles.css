@@ -1,0 +1,1252 @@
+.event-pro-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  padding: var(--15px);
+  background-color: var(--black);
+  height: 5rem;
+  z-index: 10;
+}
+
+.event-pro-header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--app-width);
+  max-width: var(--app-max-width);
+  margin: 0 auto;
+}
+
+.eventpro-logo-big {
+  width: 14.813rem;
+  cursor: pointer;
+  border-radius: var(--30px);
+  padding: 0 var(--10px);
+}
+
+.event-pro-header h3 {
+  cursor: pointer;
+}
+
+.home-title {
+  display: flex;
+  position: relative;
+  height: 70vh;
+}
+
+.home-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: no-repeat center fixed;
+  background-size: cover;
+  background-image: url(../assets/images/home-title-image.jpg);
+  z-index: -1;
+}
+
+.home-title .title-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0.6);
+  border-radius: var(--medium-radius);
+}
+
+.home-title h3 .home-title p {
+  font-size: var(--18px);
+}
+
+.home-services > h2 {
+  margin: var(--100px) var(--50px) var(--50px) var(--50px);
+  letter-spacing: 3px;
+  font-size: var(--50px);
+  font-family: "Anton";
+}
+
+/**************************** .user-header ****************************/
+
+.user-header {
+  display: flex;
+  background-color: var(--black);
+  cursor: default;
+  padding: var(--15px);
+  color: var(--white);
+  height: 9%;
+  align-items: center;
+}
+
+.user-header > div {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-menu-container {
+  display: flex;
+  align-items: center;
+}
+
+#user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-green);
+  width: var(--50px);
+  height: var(--50px);
+  border-radius: 50%;
+  font-size: var(--40px);
+  font-weight: 600;
+  margin-left: var(--20px);
+}
+
+/*************************** .account-menu *****************************/
+
+.drop-down-container {
+  width: fit-content;
+  height: 100%;
+  position: relative;
+  display: block;
+  margin: 0 var(--50px);
+}
+
+.menu-trigger {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.menu-trigger span {
+  margin-right: var(--10px);
+}
+
+.menu-anchor {
+  height: 0;
+  width: 100%;
+  position: relative;
+}
+
+.menu-options-container {
+  position: absolute;
+  width: 100px;
+  top: 0;
+  right: 0;
+  border-radius: 0 0 var(--medium-radius) var(--medium-radius);
+  background-color: var(--black);
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.menu-options {
+  height: fit-content;
+  width: max-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: var(--20px) var(--10px) var(--10px);
+  text-align: right;
+}
+
+.account-menu i {
+  transition: 0.3s;
+}
+
+.menu-options li {
+  cursor: pointer;
+}
+
+.menu-options li:hover {
+  text-decoration: underline;
+}
+
+/***********************************************************************/
+
+div.account-details-modal {
+  justify-content: space-between;
+}
+
+.account-details-modal h2 {
+  margin-top: var(--20px);
+}
+
+.account-details-modal .white-overlay {
+  height: 85%;
+}
+
+/***********************************************************************/
+
+.user-tabs {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 20%;
+}
+
+.tabs-nav-link {
+  font-size: var(--30px);
+  font-family: "Anton";
+  letter-spacing: 3px;
+  width: 33%;
+  border-radius: var(--medium-radius);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.tabs-nav-link:hover {
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+  background-color: rgba(var(--dark-green-rgb), 0.25);
+}
+
+.tabs-nav-link a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: var(--15px);
+}
+
+/***************************** .chats-tab *****************************/
+
+.chats-tab {
+  flex-direction: row;
+  height: 70%;
+}
+
+.chat-list {
+  width: 30%;
+  max-width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: var(--10px);
+  padding: var(--10px);
+  border: 1px solid black;
+}
+
+.start-chat-btn {
+  width: 100%;
+  font-size: var(--20px);
+}
+
+.chat-list > ul {
+  text-align: left;
+  width: 100%;
+  margin-top: var(--20px);
+  overflow-y: auto;
+}
+
+.chat-list > ul li {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1px 5px;
+  cursor: pointer;
+}
+
+.chats-tab li {
+  border-radius: var(--small-radius);
+}
+
+.chat-list li:hover {
+  border: 1px solid var(--blue);
+  padding: 0 4px;
+}
+
+div.start-chat-modal {
+  flex-direction: column;
+  justify-content: space-between;
+  height: fit-content;
+  max-height: 80%;
+}
+
+.start-chat-modal h2 {
+  margin-top: var(--30px);
+}
+
+.start-chat-modal > h3 {
+  margin-bottom: var(--15px);
+}
+
+.selected-users-list {
+  margin-bottom: var(--15px);
+}
+
+.selected-users-list div > span {
+  margin: 0 var(--5px);
+  border: 2px solid var(--blue);
+  border-radius: var(--15px);
+  padding: 0 var(--5px);
+  display: inline-flex;
+  align-items: center;
+  cursor: default;
+}
+
+.selected-users-list i {
+  font-size: var(--12px);
+  margin: 0 var(--5px);
+  cursor: pointer;
+}
+
+.user-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+}
+
+.user-selection-tabs-wrapper {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  margin: var(--10px) 0;
+}
+
+.user-selection-tabs-wrapper > div {
+  width: 49%;
+  display: flex;
+  border-radius: var(--small-radius);
+  transition: 0.3s;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-selection-tabs-wrapper > div:hover,
+.service-status-tabs div:hover {
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+  background-color: rgba(var(--dark-green-rgb), 0.5);
+}
+
+.user-selection-tabs-wrapper span {
+  padding: var(--5px);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.start-chat-modal ul {
+  margin-bottom: var(--40px);
+  width: 100%;
+  border: 1px solid var(--black);
+  max-height: 23rem;
+  overflow-y: auto;
+}
+
+.start-chat-modal li {
+  padding: 1px 5px;
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--small-radius);
+}
+
+.start-chat-modal li span {
+  width: 45%;
+  max-width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+#user-selection-entity-name {
+  width: fit-content;
+  text-align: center;
+}
+
+.chat-feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 70%;
+  border: 1px solid black;
+  height: 100%;
+  padding: var(--10px);
+}
+
+.chat-feature-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  position: relative;
+}
+
+.chat-feature-header > div {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: var(--12px);
+  text-align: left;
+  background-color: var(--light-green);
+  padding: var(--5px);
+  border-radius: var(--small-radius);
+  cursor: pointer;
+}
+
+.chat-feature-header > div span:first-child {
+  margin-right: var(--5px);
+  user-select: none;
+}
+
+.chat-feature-header i {
+  transition: 0.1s;
+}
+
+.chat-feature-header ul {
+  margin-top: var(--10px);
+  cursor: default;
+}
+
+.chat-feature form {
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.messages-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  overflow: auto;
+  flex-wrap: nowrap;
+}
+
+.message-container {
+  padding: var(--5px);
+  margin: var(--5px);
+  border-radius: var(--small-radius);
+  text-align: justify;
+  width: fit-content;
+  max-width: 75%;
+  height: fit-content;
+}
+
+.message-container.sender {
+  background-color: var(--blue);
+  align-self: flex-end;
+}
+
+.message-container.receiver {
+  background-color: var(--light-green);
+  align-self: flex-start;
+}
+
+.message-container > div {
+  overflow-wrap: break-word;
+  max-width: 100%;
+  width: 100%;
+}
+
+.message-creation {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--5px);
+}
+
+.message-creation textarea {
+  resize: none;
+  height: 100%;
+  width: 80%;
+  outline-color: var(--blue);
+  font-family: var(--app-font-family);
+}
+
+/***************************** .events-tab *****************************/
+
+.events-tab > button,
+.provider-services-tab > button {
+  font-size: var(--30px);
+  width: 15rem;
+  margin-bottom: var(--30px);
+}
+
+.events-tab > h2 {
+  margin-bottom: var(--30px);
+}
+
+.events-tab > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.events-list-display {
+  border: 1px solid black;
+  width: 50%;
+  margin-bottom: var(--30px);
+}
+
+.events-list-display > ul {
+  width: 100%;
+}
+
+.events-list-display > ul li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.events-list-display > ul li:first-child {
+  background-color: var(--light-green);
+  font-weight: 600;
+  cursor: default;
+}
+
+.booked-events ul li:first-child {
+  background-color: var(--coral);
+}
+
+.paid-events ul li:first-child {
+  background-color: var(--yellow);
+}
+
+.completed-events ul li:first-child {
+  background-color: var(--light-green);
+}
+
+.event-quick-details {
+  padding: 2px;
+  cursor: pointer;
+  border-radius: var(--small-radius);
+}
+
+.event-quick-details:hover {
+  padding: 0;
+  border: 2px solid var(--blue);
+}
+
+.events-list-display > ul span {
+  width: 25%;
+}
+
+/************************ .event-details-modal ************************/
+
+div.event-details-modal {
+  padding: var(--16px);
+  margin: 0;
+  justify-content: space-between;
+}
+
+.event-details-modal-title {
+  margin-top: var(--20px);
+}
+
+.event-details-modal-title span {
+  font-style: italic;
+}
+
+.event-details-modal > .white-overlay {
+  height: 85%;
+}
+
+.event-details-list {
+  width: 50%;
+  margin-bottom: var(--30px);
+}
+
+.event-details-modal tr {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--dark-green);
+  cursor: default;
+}
+
+.event-details-list td {
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.event-details-list td:first-child {
+  width: 30%;
+}
+
+.event-details-list td:last-child {
+  width: 70%;
+}
+
+.event-details-modal table {
+  width: 60%;
+  border: 1px solid var(--dark-green);
+  border-collapse: collapse;
+}
+
+.event-totals tr:last-child {
+  font-weight: 600;
+}
+
+.event-totals tr > * {
+  width: 33%;
+}
+
+.event-services-display {
+  width: 100%;
+  margin: var(--30px) 0;
+}
+
+/**************************** .provider-services-tab ****************************/
+
+.service-management-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 16rem;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--50px);
+}
+
+.service-management-buttons div {
+  display: flex;
+  width: 100%;
+}
+
+.service-management-buttons div button {
+  width: 50%;
+}
+
+.service-status-tabs {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-selection .service-status-tabs {
+  margin-bottom: var(--50px);
+}
+
+.service-status-tabs div {
+  width: 49%;
+  border-radius: var(--medium-radius);
+  font-size: var(--30px);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.service-status-tabs div:first-child:hover {
+  background-color: rgba(var(--light-green-rgb), 0.5);
+}
+
+.service-status-tabs div:last-child:hover {
+  background-color: rgba(var(--coral-rgb), 0.5);
+}
+
+/*********************** .service-cards-display ***********************/
+
+.service-cards-display {
+  width: 100%;
+  min-height: 29rem;
+}
+
+.event-details-modal .service-cards-display {
+  height: 29rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.selected-services-container {
+  display: flex;
+}
+
+.service-sorting {
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: var(--20px) auto;
+  font-size: var(--20px);
+  font-weight: 600;
+}
+
+.service-sorting select {
+  min-width: 200px;
+}
+
+.service-sorting button {
+  min-width: var(--100px);
+}
+
+.service-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 27rem;
+  margin: 0 auto;
+}
+
+.event-details-modal .service-cards-wrapper {
+  flex-wrap: nowrap;
+}
+
+.service-card-container {
+  width: 19rem;
+  height: 27rem;
+  margin: var(--10px);
+  white-space: wrap;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--medium-radius);
+  border: 3px solid var(--dark-green);
+  transition: 0.3s;
+  overflow: hidden;
+  background-color: var(--dark-green);
+  text-align: center;
+}
+
+.home-services .service-card:hover,
+.provider-services-tab .service-card:hover,
+.client-services-tab .service-card:hover,
+.service-selection .service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Fades in and out as the user scrolls. */
+.scroll-fade-in {
+  animation-timeline: view();
+  transition: 0.3s;
+  animation-name: scroll-fade-in;
+  animation-duration: 1ms;
+  animation-fill-mode: both;
+  animation-range: 0% 30%;
+}
+
+@keyframes scroll-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#events-list-display li {
+  cursor: pointer;
+}
+
+.modal-background,
+#pop-up-modal-bg {
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 99;
+}
+
+#pop-up-modal-bg {
+  display: flex;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.75);
+  z-index: 100;
+}
+
+.pop-up-modal {
+  background-color: var(--dark-green);
+  color: var(--light-gray);
+  width: fit-content;
+  max-width: 250px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 6px 6px 5px 5px rgba(0, 0, 0, 0.5);
+  border-radius: var(--medium-radius);
+  padding: var(--15px);
+  text-align: center;
+}
+
+.pop-up-modal > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+}
+
+.pop-up-modal > div button {
+  margin: var(--10px) var(--15px);
+}
+
+/*************** Fade in and out animation ***************/
+
+/* fade-in */
+
+.modal-background.fade-in {
+  position: fixed;
+  display: flex;
+  animation-name: fade-in;
+  animation-duration: 1s;
+}
+
+@keyframes fade-in {
+  0% {
+    position: fixed;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* fade-out */
+
+.modal-background.fade-out {
+  animation-name: fade-out;
+  animation-duration: 2s;
+  z-index: 99;
+}
+
+@keyframes fade-out {
+  0% {
+    position: fixed;
+    display: flex;
+    opacity: 1;
+  }
+  100% {
+    display: flex;
+    position: fixed;
+    opacity: 0;
+  }
+}
+
+/*************** Slide in and out animation ***************/
+
+/* slide-in */
+
+.service-details-modal.slide-in,
+.account-details-modal.slide-in,
+.event-details-modal.slide-in,
+.start-chat-modal.slide-in {
+  display: flex;
+  animation-name: slide-in;
+  animation-duration: 1s;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* slide-out */
+
+.service-details-modal.slide-out,
+.account-details-modal.slide-out,
+.event-details-modal.slide-out,
+.start-chat-modal.slide-out {
+  animation-name: slide-out;
+  animation-duration: 1s;
+}
+
+@keyframes slide-out {
+  0% {
+    display: flex;
+    transform: translateY(0);
+  }
+  100% {
+    display: flex;
+    transform: translateY(100vh);
+  }
+}
+
+/**************************** details-modal ****************************/
+
+.account-details-modal,
+.service-details-modal,
+.event-details-modal,
+.hour-selection-modal,
+.start-chat-modal {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 48rem;
+  height: 80%;
+  max-height: 80%;
+  padding: var(--16px);
+  background-color: var(--dark-green);
+  flex-wrap: wrap;
+  border-radius: var(--large-radius);
+}
+
+.modalX {
+  position: absolute;
+  top: var(--30px);
+  right: var(--40px);
+  cursor: pointer;
+}
+
+.modalX:hover,
+.selected-users-list i:hover {
+  color: var(--coral);
+}
+
+/*********************** .service-details-modal ***********************/
+
+.service-details-modal {
+  justify-content: space-between;
+  border: 3px solid var(--dark-green);
+  overflow: hidden;
+  background-color: var(--dark-green);
+}
+
+.service-inactive {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: var(--coral);
+  font-size: var(--12px);
+  font-weight: 900;
+}
+
+.service-title-provider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 30%;
+  width: 100%;
+  color: var(--font-dark);
+  max-width: 26.875rem;
+  padding: 0 var(--15px);
+}
+
+.service-title-provider h3 {
+  font-size: var(--20px);
+}
+
+.service-title-provider h3,
+.service-title-provider h2 {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.service-title-provider div {
+  font-style: italic;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  text-wrap: balance;
+}
+
+.service-details-modal .service-title-provider div {
+  font-size: var(--20px);
+}
+
+.white-overlay {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 70%;
+  width: 100%;
+  background-color: var(--white);
+  padding: var(--15px) var(--10px);
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  border-radius: 0 0 var(--medium-radius) var(--medium-radius);
+  overflow-y: auto;
+}
+
+.white-overlay .image-container {
+  box-shadow: 0 0 var(--5px) var(--5px) white;
+  height: 44%;
+  max-width: 63%;
+  width: fit-content;
+}
+
+.service-details-modal .image-container {
+  height: fit-content;
+  max-height: 55%;
+  width: fit-content;
+  max-width: 51%;
+}
+
+.service-details-modal table {
+  border: none;
+  width: 60%;
+}
+
+.service-details-modal tr {
+  border: none;
+}
+
+.service-details-modal td {
+  width: 50%;
+}
+
+.white-overlay > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30%;
+}
+
+/******************************** Forms ********************************/
+
+.hour-selection-modal.selecting-hour {
+  display: flex;
+  background-color: var(--white);
+  height: fit-content;
+  width: fit-content;
+}
+
+.hour-selection-modal > div {
+  margin: var(--10px);
+}
+
+.login-form,
+.select-account-type-form,
+.create-account-form,
+.create-or-edit-service-form,
+.create-or-edit-event-form {
+  display: flex;
+  height: 91vh;
+  background-color: var(--white);
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.login-form,
+.select-account-type-form,
+.create-account-form {
+  height: fit-content;
+  min-height: 90%;
+}
+
+.login-form form,
+.select-account-type-form > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--blue);
+}
+
+.select-account-type-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  margin-top: var(--20px);
+}
+
+.login-form form > div:last-child,
+.select-account-type-form form > div:last-child {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: var(--100px);
+  justify-content: space-evenly;
+}
+
+.login-form span,
+.select-account-type-form span {
+  cursor: pointer;
+}
+
+.login-form span:hover,
+.select-account-type-form span:hover {
+  text-decoration: underline;
+}
+
+.create-account-form > div,
+.create-or-edit-service-form > div,
+.create-or-edit-event-form > div {
+  padding: var(--15px);
+  max-width: 26.563rem;
+  margin: auto;
+}
+
+.create-account-form h2,
+.create-or-edit-service-form h2,
+.create-or-edit-event-form h2 {
+  margin-bottom: var(--20px);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+  min-height: var(--50px);
+  width: 100%;
+}
+
+.input-wrapper > label {
+  width: 30%;
+  height: fit-content;
+  text-align: left;
+  padding-right: 0 var(--5px);
+}
+
+.input-wrapper > input,
+.input-wrapper > select,
+.triple-input-wrapper {
+  display: flex;
+  width: 70%;
+  margin: var(--10px) 0;
+}
+
+.selected-services-list {
+  width: 100%;
+  margin: var(--10px) 0;
+}
+
+.input-wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: var(--10px);
+  border: 1px solid var(--blue);
+}
+
+.input-wrapper tr {
+  display: grid;
+  border: 1px solid var(--blue);
+  width: 100%;
+  grid-template-columns: 40% 25% 25% 10%;
+}
+
+.input-wrapper td:last-child {
+  cursor: pointer;
+}
+
+.textarea-wrapper {
+  height: fit-content;
+  position: relative;
+}
+
+.textarea-wrapper textarea {
+  resize: none;
+  height: var(--100px);
+  width: 70%;
+  margin: var(--10px);
+  outline-color: var(--blue);
+  font-family: var(--app-font-family);
+}
+
+.create-or-edit-service-form textarea {
+  height: var(--40px);
+}
+
+.textarea-wrapper span {
+  position: absolute;
+  right: var(--15px);
+  bottom: var(--10px);
+  font-size: var(--12px);
+}
+
+.radio-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+}
+
+.range-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.range-wrapper > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.range-wrapper input {
+  width: 80%;
+  margin: 0;
+}
+
+.range-wrapper input:last-child {
+  margin-left: auto;
+}
+
+.triple-input-wrapper span {
+  display: flex;
+  text-align: center;
+  width: 33.33%;
+  align-items: center;
+}
+
+.triple-input-wrapper input {
+  width: 4rem;
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.triple-input-wrapper div {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  flex-grow: 1;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.triple-input-wrapper select {
+  width: 100%;
+  margin: 0;
+}
+
+.error-message {
+  width: 100%;
+  background-color: var(--coral);
+  color: var(--font-dark);
+  padding: var(--5px);
+}
+
+.button-wrapper {
+  margin-top: var(--40px);
+}
+
+.service-selection h1 {
+  font-family: "Anton";
+  letter-spacing: 3px;
+}
