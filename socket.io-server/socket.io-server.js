@@ -10,6 +10,8 @@ const io = require("socket.io")(server, {
   },
 });
 
+// The "new-user" and "send-message" emissions are sent from
+// "ChatRoomProvider.tsx"
 io.on("connection", (socket) => {
   socket.on("new-user", (room) => {
     socket.join(room);
