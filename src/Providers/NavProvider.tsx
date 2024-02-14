@@ -19,8 +19,8 @@ type TypeNavProvider = {
   navUrls: NavUrls;
 };
 
-const navContext = createContext<TypeNavProvider>({} as TypeNavProvider);
-export const UseNav = () => useContext(navContext);
+const NavContext = createContext<TypeNavProvider>({} as TypeNavProvider);
+export const UseNav = () => useContext(NavContext);
 
 export const NavProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
@@ -39,13 +39,13 @@ export const NavProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <navContext.Provider
+    <NavContext.Provider
       value={{
         navigate,
         navUrls,
       }}
     >
       {children}
-    </navContext.Provider>
+    </NavContext.Provider>
   );
 };
