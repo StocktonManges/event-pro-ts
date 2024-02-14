@@ -12,6 +12,6 @@ npm run dev
 cd socket.io-server
 npm run serve:socket
 
-# RESEED the database by opening a new terminal and running:
-
+# RESEED the database: 
+Open a new terminal and run:
 node reseed.js
