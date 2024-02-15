@@ -33,8 +33,8 @@ type TypeAuthProvider = {
   cancelAccount: (userId: number) => Promise<void | string>;
 };
 
-const authContext = createContext<TypeAuthProvider>({} as TypeAuthProvider);
-export const UseAuth = () => useContext(authContext);
+const AuthContext = createContext<TypeAuthProvider>({} as TypeAuthProvider);
+export const UseAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const { navigate, navUrls } = UseNav();
@@ -147,7 +147,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <authContext.Provider
+    <AuthContext.Provider
       value={{
         currentUser,
         setCurrentUser,
@@ -164,6 +164,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }}
     >
       {children}
-    </authContext.Provider>
+    </AuthContext.Provider>
   );
 };

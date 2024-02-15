@@ -11,10 +11,10 @@ type TypePopUpModalProvider = {
   exitPopUpModal: () => void;
 };
 
-const popUpModalContext = createContext<TypePopUpModalProvider>(
+const PopUpModalContext = createContext<TypePopUpModalProvider>(
   {} as TypePopUpModalProvider
 );
-export const UsePopUpModal = () => useContext(popUpModalContext);
+export const UsePopUpModal = () => useContext(PopUpModalContext);
 
 export const PopUpModalProvider = ({ children }: { children: ReactNode }) => {
   const [popUpModalVisible, setPopUpModalVisible] = useState<boolean>(false);
@@ -39,7 +39,7 @@ export const PopUpModalProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <popUpModalContext.Provider
+    <PopUpModalContext.Provider
       value={{
         popUpModalVisible,
         popUpModalButtonPropsArr,
@@ -49,6 +49,6 @@ export const PopUpModalProvider = ({ children }: { children: ReactNode }) => {
       }}
     >
       {children}
-    </popUpModalContext.Provider>
+    </PopUpModalContext.Provider>
   );
 };

@@ -75,10 +75,10 @@ type TypeServicesProvider = {
   };
 };
 
-const servicesContext = createContext<TypeServicesProvider>(
+const ServicesContext = createContext<TypeServicesProvider>(
   {} as TypeServicesProvider
 );
-export const UseServices = () => useContext(servicesContext);
+export const UseServices = () => useContext(ServicesContext);
 
 export const ServicesProvider = ({ children }: { children: ReactNode }) => {
   const { currentUser } = UseAuth();
@@ -342,7 +342,7 @@ export const ServicesProvider = ({ children }: { children: ReactNode }) => {
   }, [currentUser]);
 
   return (
-    <servicesContext.Provider
+    <ServicesContext.Provider
       value={{
         allServices,
         getServiceFromId,
@@ -366,6 +366,6 @@ export const ServicesProvider = ({ children }: { children: ReactNode }) => {
       }}
     >
       {children}
-    </servicesContext.Provider>
+    </ServicesContext.Provider>
   );
 };

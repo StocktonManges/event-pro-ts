@@ -28,10 +28,10 @@ type TypeChatRoomProvider = {
   startChatRoom: (newChatRoomInfo: Omit<ChatRoom, "id">) => Promise<ChatRoom>;
 };
 
-const chatRoomContext = createContext<TypeChatRoomProvider>(
+const ChatRoomContext = createContext<TypeChatRoomProvider>(
   {} as TypeChatRoomProvider
 );
-export const UseChatRoom = () => useContext(chatRoomContext);
+export const UseChatRoom = () => useContext(ChatRoomContext);
 
 export const ChatRoomProvider = ({ children }: { children: ReactNode }) => {
   const { currentUser } = UseAuth();
@@ -130,7 +130,7 @@ export const ChatRoomProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <chatRoomContext.Provider
+    <ChatRoomContext.Provider
       value={{
         messageInput,
         setMessageInput,
@@ -144,6 +144,6 @@ export const ChatRoomProvider = ({ children }: { children: ReactNode }) => {
       }}
     >
       {children}
-    </chatRoomContext.Provider>
+    </ChatRoomContext.Provider>
   );
 };

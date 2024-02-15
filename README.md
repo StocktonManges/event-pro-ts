@@ -1,21 +1,35 @@
 # Starting the Event Pro app:
 
-(1) Open three terminals.
+---
 
-(2) In terminal 1 run:
+### 1. Open three terminals.
 
-npm run serve
+### 2. In terminal 1 run:
 
-(3) In terminal 2 run:
-
+```
+npm i
 npm run dev
+```
 
-(4) In terminal 3 run:
+### 3. In terminal 2 run:
 
-cd socket.io-server<br>
+```
+npm run serve
+```
+
+### 4. In terminal 3 run:
+
+```
+cd socket.io-server
 npm run serve:socket
+```
 
-# RESEED the database: 
-Open a new terminal and run:
+# Reseeding the database:
 
+---
+
+### Open a new terminal and run:
+
+```
 node reseed.js
+```

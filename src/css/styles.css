@@ -676,7 +676,7 @@ div.event-details-modal {
 }
 
 .service-sorting button {
-  min-width: var(--100px);
+  width: fit-content;
 }
 
 .service-cards-wrapper {

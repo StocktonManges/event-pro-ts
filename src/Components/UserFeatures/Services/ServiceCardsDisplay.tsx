@@ -9,6 +9,14 @@ import { ServiceCard } from "./ServiceCard";
 import { UseAuth } from "../../../Providers/AuthProvider";
 import { ServiceDetailsModal } from "./ServiceDetailsModal";
 import { Global } from "../../../utils/GlobalVarsAndFuncs";
+import { z } from "zod";
+
+const filterBySchema = z.union([
+  z.literal("indoors"),
+  z.literal("outdoors"),
+  z.literal("both"),
+]);
+type FilterBy = z.infer<typeof filterBySchema>;
 
 export const ServiceCardsDisplay = ({
   servicesArray,
@@ -19,6 +27,7 @@ export const ServiceCardsDisplay = ({
 }) => {
   const { getUserFromId } = UseAuth();
   const [sortBy, setSortBy] = useState<SortByOption>("title");
+  const [filterBy, setFilterBy] = useState<FilterBy>("both");
   const [sortDirection, setSortDirection] = useState<
     "ascending" | "descending"
   >("descending");
@@ -49,7 +58,7 @@ export const ServiceCardsDisplay = ({
       // or numbers the "sortDirection" button will be accurate.
       return serviceB - serviceA;
     } else if (typeof serviceA === "string" && typeof serviceB === "string") {
-      return Intl.Collator().compare(serviceA, serviceB);
+      return Intl.Collator().compare(serviceB, serviceA);
     } else {
       return serviceA ? -1 : 1;
     }
@@ -60,11 +69,14 @@ export const ServiceCardsDisplay = ({
       getUserFromId(service.providerId)
     );
 
+    const viewingOutdoors = filterBy === "outdoors";
+
     const searchValueMatches =
-      service.title.toLowerCase().includes(searchInput.toLowerCase()) ||
-      serviceProvider.entityName
-        .toLowerCase()
-        .includes(searchInput.toLowerCase());
+      (service.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+        serviceProvider.entityName
+          .toLowerCase()
+          .includes(searchInput.toLowerCase())) &&
+      (service.outdoors === viewingOutdoors || filterBy === "both");
     return searchValueMatches;
   };
 
@@ -72,6 +84,22 @@ export const ServiceCardsDisplay = ({
     <section className="service-cards-display">
       {showFilterOptions && (
         <div className="service-sorting flex-container">
+          <span>
+            <label htmlFor="filter-by">Filter by:</label>
+            <select
+              name="filter-by"
+              id="filter-by"
+              value={filterBy}
+              onChange={(e) => {
+                setFilterBy(filterBySchema.parse(e.target.value));
+              }}
+            >
+              <option value="both">Both</option>
+              <option value="outdoors">Outdoors</option>
+              <option value="indoors">Indoors</option>
+            </select>
+          </span>
+
           <span>
             <label htmlFor="search-input">Search: </label>
             <input
@@ -100,7 +128,6 @@ export const ServiceCardsDisplay = ({
               <option value="minParticipants">Min Participants</option>
               <option value="maxParticipants">Max Participants</option>
               <option value="duration">Duration</option>
-              <option value="outdoors">Outdoors</option>
               <option value="price">Price</option>
             </select>
             <button
@@ -111,7 +138,14 @@ export const ServiceCardsDisplay = ({
                 );
               }}
             >
-              {sortDirection}
+              <i
+                className="fa-solid fa-arrow-up-wide-short"
+                style={
+                  sortDirection === "ascending"
+                    ? {}
+                    : { transform: "scaleY(-1)" }
+                }
+              ></i>
             </button>
           </span>
         </div>

@@ -82,10 +82,10 @@ type TypeEventsProvider = {
   };
 };
 
-const eventsContext = createContext<TypeEventsProvider>(
+const EventsContext = createContext<TypeEventsProvider>(
   {} as TypeEventsProvider
 );
-export const UseEvents = () => useContext(eventsContext);
+export const UseEvents = () => useContext(EventsContext);
 
 export const EventsProvider = ({ children }: { children: ReactNode }) => {
   const { navigate, navUrls } = UseNav();
@@ -441,7 +441,7 @@ export const EventsProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <eventsContext.Provider
+    <EventsContext.Provider
       value={{
         currentClientEvents,
         currentProviderEvents,
@@ -463,6 +463,6 @@ export const EventsProvider = ({ children }: { children: ReactNode }) => {
       }}
     >
       {children}
-    </eventsContext.Provider>
+    </EventsContext.Provider>
   );
 };
