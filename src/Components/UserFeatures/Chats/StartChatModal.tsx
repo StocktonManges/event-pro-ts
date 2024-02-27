@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { UseAuth } from "../../../Providers/AuthProvider";
 import { UseChatRoom } from "../../../Providers/ChatRoomProvider";
 import { ErrorMessage } from "../../ErrorMessage";
@@ -18,10 +18,15 @@ export const StartChatModal = ({
   const [selectedUserIds, setSelectedUserIds] = useState<number[]>([]);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [viewingClients, setViewingClients] = useState<boolean>(false);
+  const [scrolling, setScrolling] = useState<boolean>(false);
+  const selectedUsersScrollWrapper = useRef<HTMLDivElement>(null);
+  const selectedUsersListWrapper = useRef<HTMLDivElement>(null);
+  const arrowInterval = useRef<NodeJS.Timeout | null>(null);
 
   const isClient = currentUser.accountType === "Client";
 
   const exitModal = () => {
+    setIsSubmitted(false);
     setIsDisplayed(false);
     setSelectedUserIds([]);
   };
@@ -65,11 +70,28 @@ export const StartChatModal = ({
     );
   });
 
+  useEffect(() => {
+    const scrollWrapperWidth = selectedUsersScrollWrapper.current
+      ? selectedUsersScrollWrapper.current.clientWidth
+      : 0;
+    const listWrapperWidth = selectedUsersListWrapper.current
+      ? selectedUsersListWrapper.current.clientWidth
+      : 0;
+    setScrolling(scrollWrapperWidth <= listWrapperWidth + 40);
+  }, [selectedUserIds]);
+
   return (
     <section
       className={`modal-background ${isDisplayed ? "fade-in" : "fade-out"}`}
       onClick={() => {
         exitModal();
+      }}
+      // Stops the selected-users-list from infinitely scrolling.
+      onMouseUp={() => {
+        if (arrowInterval.current) {
+          clearInterval(arrowInterval.current);
+          arrowInterval.current = null;
+        }
       }}
     >
       <div
@@ -84,15 +106,49 @@ export const StartChatModal = ({
         >
           <i className="fa-solid fa-x"></i>
         </div>
-        <h2>Start a chat!</h2>
-        <h3>
-          Select the {isClient ? "service provider(s)" : "user(s)"} you would
-          like to start a chat with:
-        </h3>
 
-        <div className="selected-users-list">
+        <div className="start-chat-title">
+          <h2>Start a chat!</h2>
+          <h3>
+            Select the {isClient ? "service provider(s)" : "user(s)"} you would
+            like to start a chat with:
+          </h3>
+
           <h3>Your selection:</h3>
-          <div>{selectedUserNames}</div>
+          <div className="selected-users-list">
+            <span
+              style={scrolling ? {} : { display: "none" }}
+              className="left-arrow"
+              onMouseDown={() => {
+                arrowInterval.current = setInterval(() => {
+                  if (selectedUsersScrollWrapper.current) {
+                    selectedUsersScrollWrapper.current.scrollLeft -= 20;
+                  }
+                }, 50);
+              }}
+            >
+              <i className="fa-solid fa-angle-left" />
+            </span>
+            <span
+              style={scrolling ? {} : { display: "none" }}
+              className="right-arrow"
+              onMouseDown={() => {
+                arrowInterval.current = setInterval(() => {
+                  if (selectedUsersScrollWrapper.current) {
+                    selectedUsersScrollWrapper.current.scrollLeft += 20;
+                  }
+                }, 50);
+              }}
+            >
+              <i className="fa-solid fa-angle-right" />
+            </span>
+            <div
+              className="selected-users-scroll-wrapper"
+              ref={selectedUsersScrollWrapper}
+            >
+              <div ref={selectedUsersListWrapper}>{selectedUserNames}</div>
+            </div>
+          </div>
         </div>
 
         <div className="white-overlay">
@@ -133,19 +189,26 @@ export const StartChatModal = ({
               />
             )}
 
-            <button
-              type="button"
-              className="btn-coral"
-              onClick={() => {
-                exitModal();
-              }}
-            >
-              Cancel
-            </button>
+            <div className="button-wrapper">
+              <button
+                type="button"
+                className="btn-coral"
+                onClick={() => {
+                  exitModal();
+                }}
+              >
+                Cancel
+              </button>
 
-            <button className="btn-dark-green" type="submit">
-              Start Chat
-            </button>
+              <button
+                className="btn-dark-green"
+                type="submit"
+                disabled={selectedUserIds.length === 0}
+              >
+                Start Chat
+              </button>
+            </div>
+
             <ErrorMessage
               message="A chat with the selected user(s) already exists."
               isDisplayed={

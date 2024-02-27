@@ -241,7 +241,7 @@ div.account-details-modal {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 1px 5px;
+  padding: 1.6px 5px;
   cursor: pointer;
 }
 
@@ -250,15 +250,21 @@ div.account-details-modal {
 }
 
 .chat-list li:hover {
-  border: 1px solid var(--blue);
-  padding: 0 4px;
+  border: 2px solid var(--blue);
+  padding: 0 3.4px;
 }
 
 div.start-chat-modal {
   flex-direction: column;
   justify-content: space-between;
-  height: fit-content;
+  min-height: min-content;
   max-height: 80%;
+}
+
+.start-chat-title {
+  height: 30%;
+  max-height: 30%;
+  width: 100%;
 }
 
 .start-chat-modal h2 {
@@ -270,23 +276,69 @@ div.start-chat-modal {
 }
 
 .selected-users-list {
-  margin-bottom: var(--15px);
+  width: 100%;
+  height: 37.2px;
+  position: relative;
 }
 
-.selected-users-list div > span {
-  margin: 0 var(--5px);
+.selected-users-list > span {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: var(--dark-green);
+  padding: 0 var(--5px);
+  z-index: 1;
+}
+
+.selected-users-list > span:hover {
+  background-color: #124d45;
+  color: var(--coral);
+}
+
+.selected-users-list .left-arrow {
+  left: 0;
+}
+
+.selected-users-list .right-arrow {
+  right: 0;
+}
+
+.selected-users-scroll-wrapper {
+  overflow-x: auto;
+  padding: 0 var(--20px);
+  width: 100%;
+}
+
+.selected-users-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.selected-users-scroll-wrapper > div {
+  width: max-content;
+  margin: auto;
+}
+
+.selected-users-scroll-wrapper div > span {
+  margin: var(--5px);
   border: 2px solid var(--blue);
   border-radius: var(--15px);
   padding: 0 var(--5px);
   display: inline-flex;
   align-items: center;
   cursor: default;
+  user-select: none;
 }
 
-.selected-users-list i {
+.selected-users-scroll-wrapper i {
   font-size: var(--12px);
   margin: 0 var(--5px);
   cursor: pointer;
+}
+
+.start-chat-modal .white-overlay {
+  max-height: 69%;
 }
 
 .user-selection {
@@ -328,7 +380,6 @@ div.start-chat-modal {
 }
 
 .start-chat-modal ul {
-  margin-bottom: var(--40px);
   width: 100%;
   border: 1px solid var(--black);
   max-height: 23rem;
@@ -336,7 +387,7 @@ div.start-chat-modal {
 }
 
 .start-chat-modal li {
-  padding: 1px 5px;
+  padding: 1.6px 5px;
   cursor: pointer;
   display: flex;
   width: 100%;
@@ -351,6 +402,10 @@ div.start-chat-modal {
   display: flex;
   flex-wrap: wrap;
   text-align: left;
+}
+
+.start-chat-modal .button-wrapper {
+  margin-bottom: var(--10px);
 }
 
 #user-selection-entity-name {
@@ -517,7 +572,7 @@ div.start-chat-modal {
 }
 
 .event-quick-details {
-  padding: 2px;
+  padding: 1.6px;
   cursor: pointer;
   border-radius: var(--small-radius);
 }
@@ -548,7 +603,7 @@ div.event-details-modal {
 }
 
 .event-details-modal > .white-overlay {
-  height: 85%;
+  height: 83%;
 }
 
 .event-details-list {
@@ -914,7 +969,8 @@ div.event-details-modal {
 }
 
 .modalX:hover,
-.selected-users-list i:hover {
+.selected-users-list > div i:hover,
+.selected-users-list > span:hover {
   color: var(--coral);
 }
 
