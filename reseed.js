@@ -23,7 +23,7 @@ const db = {
       firstName: "Kevin",
       lastName: "James",
       phone: "123-456-7890",
-      email: "poopookakadoodyhouse@hotmail.org",
+      email: "kevin@hotmail.org",
     },
     {
       id: 2,
@@ -800,7 +800,7 @@ const db = {
         "That's great...",
         "Were you in danger?",
         "I'll take that as a yes then?",
-        "No I wasn't in danger. I'm just not sure how to break the ice very welll.",
+        "No I wasn't in danger. I'm just not sure how to break the ice very well.",
         "ah.... I see.",
         "That's okay",
       ],
